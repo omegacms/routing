@@ -14,7 +14,7 @@
     }
   ],
   "require": {
-    "php": "^8.1",
+    "php": ">=8.2",
     "filp/whoops": "^2.1"
   },
   "require-dev": {
