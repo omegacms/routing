@@ -1,6 +1,6 @@
 <?php
 /**
- * Part of Banco Omega CMS -  Routing Package
+ * Part of Omega CMS -  Routing Package
  *
  * @link       https://omegacms.github.io
  * @author     Adriano Giovannini <omegacms@outlook.com>
