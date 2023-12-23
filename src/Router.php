@@ -34,6 +34,9 @@ use Omega\Helpers\Alias;
 /**
  * Router class.
  *
+ * The `Router` class is responsible for managing routes and dispatching requests to the appropriate handlers.
+ *
+ *
  * @category    Omega
  * @package     Omega\Routing
  * @link        https://omegacms.github.io
@@ -66,10 +69,10 @@ class Router extends AbstractRouter
     protected Route $current;
 
     /**
-     * Error handler method.
+     * Adds an error handler for a specific HTTP error code.
      *
-     * @param  int      $code    Holds the error code.
-     * @param  callable $handler Holds the callable handler.
+     * @param  int      $code    The HTTP error code.
+     * @param  callable $handler The error handler.
      * @return void
      */
     public function errorHandler( int $code, callable $handler ) : void
@@ -79,7 +82,7 @@ class Router extends AbstractRouter
 
 
     /**
-     * Dispatch the route.
+     * @inheritdoc
      *
      * @return mixed
      * @throws Throwable
@@ -116,7 +119,7 @@ class Router extends AbstractRouter
     }
 
     /**
-     * Get paths.
+     * Gets an array of paths registered in the router.
      *
      * @return array Return an array of paths.
      */
@@ -131,10 +134,10 @@ class Router extends AbstractRouter
         return $paths;
     }
 
-    /**
-     * Get current route.
+   /**
+     * Gets the current route being dispatched.
      *
-     * @return ?Route Return an instance of Route or null.
+     * @return ?Route Return an instance of Route or null if no route is matched.
      */
     public function current() : ?Route
     {
@@ -142,11 +145,11 @@ class Router extends AbstractRouter
     }
 
     /**
-     * Route match.
+     * Matches a route based on the HTTP method and path.
      *
-     * @param  string $method Holds the method.
-     * @param  string $path   Holds the path.
-     * @return ?Route Return an instance of Route or null.
+     * @param  string $method The HTTP method.
+     * @param  string $path   The path to match.
+     * @return ?Route Return an instance of Route or null if no route is matched.
      */
     private function match( string $method, string $path ) : ?Route
     {
@@ -160,7 +163,7 @@ class Router extends AbstractRouter
     }
 
     /**
-     * Dispatch not allowed method.
+     * Dispatch a not allowed response.
      *
      * @return mixed
      */
@@ -172,7 +175,7 @@ class Router extends AbstractRouter
     }
 
     /**
-     * Dispatch not found method.
+     * Dispatch a not found response.
      *
      * @return mixed
      */
@@ -184,7 +187,7 @@ class Router extends AbstractRouter
     }
 
     /**
-     * Dispatch error method.
+     * Dispatch a server error response.
      *
      * @return mixed
      */
@@ -196,9 +199,9 @@ class Router extends AbstractRouter
     }
 
     /**
-     * Redirect method.
+     * Redirects the request to a new path.
      *
-     * @param  string $path Holds the redirect path.
+     * @param  string $path The path to redirect to.
      * @return void
      */
     public function redirect( string $path ) : void
@@ -209,11 +212,11 @@ class Router extends AbstractRouter
     }
 
     /**
-     * Route method.
+     * Generates a URL for a named route.
      *
-     * @param  string $name       Holds the route name.
-     * @param  array  $parameters Holds an array of parameters.
-     * @return string Return the route string.
+     * @param  string $name       The name of the route.
+     * @param  array  $parameters An array of parameters to replace in the route path.
+     * @return string The generated route URL.
      * @throws Exception
      */
     public function route( string $name, array $parameters = [] ) : string

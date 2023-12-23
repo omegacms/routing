@@ -35,7 +35,9 @@ use function trim;
 use Omega\Helpers\App;
 
 /**
- * Route class
+ * Route class.
+ *
+ * The `Route` class represents an individual route in the routing system.
  *
  * @category    Omega
  * @package     Omega\Routing
@@ -47,47 +49,47 @@ use Omega\Helpers\App;
  */
 class Route
 {
-     /**
-     * Method.
+    /**
+     * HTTP method associated with the route.
      *
-     * @var string $method Holds the method.
+     * @var string $method Holds the route method.
      */
     protected string $method;
 
     /**
-     * Route path.
+     * Path pattern for the route.
      *
      * @var string $path Holds the route path.
      */
     protected string $path;
 
     /**
-     * Handler.
+     * Handler of the route.
      *
-     * @var mixed Holds the handler.
+     * @var mixed $handler Holds the handler.
      */
     protected mixed $handler;
 
-        /**
-     * Parameters array.
+    /**
+     * Array of route parameters.
      *
-     * @var array $parameters Holds an array of parameters.
+     * @var array $parameters Holds an array of route parameters.
      */
     protected array $parameters = [];
 
     /**
-     * Route name.
+     * Name of the route.
      *
-     * @var ?string $name Holds route name or null.
+     * @var ?string $name Holds route name or null if not named.
      */
     protected ?string $name = null;
 
     /**
      * Route class constructor.
      *
-     * @param  string  $method  Holds the method.
-     * @param  string  $path    Holds the path.
-     * @param  mixed   $handler Holds the handler.
+     * @param  string  $method  Holds the HTTP method associated with the route.
+     * @param  string  $path    Holds the path pattern for the route.
+     * @param  mixed   $handler Holds the handler for the route.
      * @param  ?string $name    Holds the route name or null.
      * @return void
      */
@@ -99,10 +101,10 @@ class Route
         $this->name    = $name;
     }
 
-        /**
-     * Get route method.
+    /**
+     * Get the HTTP method associated with the route.
      *
-     * @return string Return the route method.
+     * @return string Returns the route method.
      */
     public function method() : string
     {
@@ -110,9 +112,9 @@ class Route
     }
 
     /**
-     * Get route path.
+     * Get the path pattern for the route.
      *
-     * @return string Return the route path.
+     * @return string Returns the route path.
      */
     public function path() : string
     {
@@ -120,9 +122,9 @@ class Route
     }
 
     /**
-     * Get route parameters.
+     * Get the parameters associated with the route.
      *
-     * @return array Return an array of route parameters.
+     * @return array Returns an array of route parameters.
      */
     public function parameters() : array
     {
@@ -130,7 +132,7 @@ class Route
     }
 
     /**
-     * Route name.
+     * Get or set the name of the route.
      *
      * @param  ?string $name Holds the route name.
      * @return $this|string|null
@@ -145,6 +147,13 @@ class Route
         return $this->name;
     }
 
+    /**
+     * Checks if the route matches a given HTTP method and path.
+     *
+     * @param  string $method Holds the HTTP method to match.
+     * @param  string $path   Holds the path to match.
+     * @return bool Returns true if the route matches, false otherwise.
+     */
     public function matches(string $method, string $path): bool
     {
         if (
@@ -200,11 +209,11 @@ class Route
         return false;
     }
 
-        /**
-     * Normalise path.
+    /**
+     * Normalizes the path by removing leading and trailing slashes.
      *
-     * @param  string $path Holds the path.
-     * @return string Return the normalised path.
+     * @param  string $path Holds the path to normalize.
+     * @return string Returns the normalized path.
      */
     private function normalisePath( string $path ) : string
     {
@@ -214,7 +223,13 @@ class Route
         return preg_replace( '/[\/]{2,}/', '/', $path );
     }
 
-
+    /**
+     * Dispatches the route handler.
+     *
+     * This method invokes the registered handler for the route, typically a controller action.
+     *
+     * @return mixed The result of the route handler.
+     */
     public function dispatch(): mixed
     {
         return App::application()->call($this->handler);

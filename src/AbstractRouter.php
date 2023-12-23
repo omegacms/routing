@@ -19,8 +19,13 @@ declare( strict_types = 1 );
 namespace Omega\Routing;
 
 /**
- * AbstractRouter class.
- *
+ * Abstract router class.
+ * 
+ * The `AbstractRouter` class serves as a foundation for implementing custom routers within 
+ * the Omega CMS Routing Package. It provides a set of methods to add routes for different 
+ * HTTP methods and defines the dispatching behavior, allowing derived classes to handle 
+ * route matching and execution of associated handlers.
+ * *
  * @category    Omega
  * @package     Omega\Routing
  * @link        https://omegacms.github.io
@@ -32,7 +37,7 @@ namespace Omega\Routing;
 abstract class AbstractRouter implements RouterInterface
 {
     /**
-     * Adds a route to the router.
+     * @inheritdoc
      *
      * @param  string  $method  Holds the HTTP method for the route.
      * @param  string  $path    Holds the path pattern for the route.
@@ -49,7 +54,9 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * Adds a GET route to the router.
+     * Get method.
+     * 
+     * Adds a `GET` route to the router.
      *
      * @param  string  $path    Holds the path pattern for the route.
      * @param  mixed   $handler Holds the handler for the route.
@@ -62,7 +69,9 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * Adds a POST route to the router.
+     * Post method.
+     * 
+     * Adds a `POST` route to the router.
      *
      * @param  string  $path    Holds the path pattern for the route.
      * @param  mixed   $handler Holds the handler for the route.
@@ -75,7 +84,9 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * Adds a PUT route to the router.
+     * Put method.
+     * 
+     * Adds a `PUT` route to the router.
      *
      * @param  string  $path    Holds the path pattern for the route.
      * @param  mixed   $handler Holds the handler for the route.
@@ -88,7 +99,9 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * Adds a DELETE route to the router.
+     * Delete method.
+     * 
+     * Adds a `DELETE` route to the router.
      *
      * @param  string  $path    Holds the path pattern for the route.
      * @param  mixed   $handler Holds the handler for the route.
@@ -101,7 +114,9 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * Adds a PATCH route to the router.
+     * Patch method.
+     * 
+     * Adds a `PATCH` route to the router.
      *
      * @param  string  $path    Holds the path pattern for the route.
      * @param  mixed   $handler Holds the handler for the route.
@@ -114,7 +129,9 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * Adds an OPTIONS route to the router.
+     * Options method.
+     * 
+     * Adds a `OPTIONS` route to the router.
      *
      * @param  string  $path    Holds the path pattern for the route.
      * @param  mixed   $handler Holds the handler for the route.
@@ -127,7 +144,9 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * Adds a route that matches any HTTP method to the router.
+     * Any method.
+     * 
+     * Adds a `ANY` route to the router.
      *
      * @param  string  $path    Holds the path pattern for the route.
      * @param  mixed   $handler Holds the handler for the route.
@@ -140,7 +159,7 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * Dispatches the router, matching the current request and executing the corresponding route handler.
+     * @inheritdoc
      *
      * @return mixed  The result of the route handler.
      */
