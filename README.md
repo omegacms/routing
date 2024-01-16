@@ -1,4 +1,4 @@
-# The Routing Package
+# Routing Package
 
 The Routing package is used to register an application's routes
 and to route the request URI to a controller method.
