@@ -18,14 +18,14 @@ composer require omegacms/routing
 
 ## Documentation
 
-| Language Name | Status | Documentation Link                  |
-| ------------- | ------ | ----------------------------------- |
-| English       | ✔️      | [Documentation](docs/en/index.md)   |
-| Italian       | ✔️      | [Documentazione](docs/it/index.md)  |
-| French        | ❌     |                                     |
-| Spanish       | ❌     |                                     |
-| German        | ❌     |                                     |
-| Portuguese    | ❌     |                                     |
+| Translations  | Status | Documentation Link                 |
+| ------------- | ------ | -----------------------------------|
+| English       | ❌     | [Documentation](docs/en/inde.md)   |
+| French        | ❌     | [Documentation](docs/fr/index.md)  |
+| German        | ❌     | [Dokumentation](docs/de/index.md)  |
+| Italiano      | ❌     | [Documentazione](docs/it/index.md) |
+| Portuguese    | ❌     | [Documentação](docs/pt/index.md)   |
+| Spanish       | ❌     | [Documentación](docs/es/index.md)  |
 
 
 ## Contributing
