@@ -18,6 +18,16 @@ composer require omegacms/routing
 
 ## Documentation
 
+| Language Name | Status | Documentation Link                  |
+| ------------- | ------ | ----------------------------------- |
+| English       | ✔️      | [Documentation](docs/en/index.md)   |
+| Italian       | ✔️      | [Documentazione](docs/it/index.md)  |
+| French        | ❌     |                                     |
+| Spanish       | ❌     |                                     |
+| German        | ❌     |                                     |
+| Portuguese    | ❌     |                                     |
+
+
 ## Contributing
 
 If you'd like to contribute to the OmegaCMS Routing package, please follow our [contribution guidelines](CONTRIBUTING.md).
