@@ -20,7 +20,7 @@ composer require omegacms/routing
 
 | Translations  | Status | Documentation Link                 |
 | ------------- | ------ | -----------------------------------|
-| English       | ❌     | [Documentation](docs/en/inde.md)   |
+| English       | ❌     | [Documentation](docs/en/index.md)  |
 | French        | ❌     | [Documentation](docs/fr/index.md)  |
 | German        | ❌     | [Dokumentation](docs/de/index.md)  |
 | Italiano      | ❌     | [Documentazione](docs/it/index.md) |
