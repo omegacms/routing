@@ -34,4 +34,4 @@ If you'd like to contribute to the OmegaCMS Routing package, please follow our [
 
 ## License
 
-This project is open-source software licensed under the [GNU General Public License v3.0](./LICENSE).
+This project is open-source software licensed under the [GNU General Public License v3.0](LICENSE).

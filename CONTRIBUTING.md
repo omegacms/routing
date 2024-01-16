@@ -34,6 +34,6 @@ Please follow the existing code style and conventions. Run `composer check-style
 
 ## License
 
-By contributing to this project, you agree that your contributions will be licensed under the [GNU General Public License v3.0](./LICENSE).
+By contributing to this project, you agree that your contributions will be licensed under the [GNU General Public License v3.0](LICENSE).
 
 Thank you for contributing to OmegaCMS Routing!
