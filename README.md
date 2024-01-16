@@ -16,6 +16,8 @@ command line:
 composer require omegacms/routing
 ```
 
+## Documentation
+
 ## Contributing
 
 If you'd like to contribute to the OmegaCMS Routing package, please follow our [contribution guidelines](CONTRIBUTING.md).
