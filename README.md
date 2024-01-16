@@ -15,3 +15,11 @@ command line:
 ```sh
 composer require omegacms/routing
 ```
+
+## Contributing
+
+If you'd like to contribute to the OmegaCMS Routing package, please follow our [contribution guidelines](CONTRIBUTING.md).
+
+## License
+
+This project is open-source software licensed under the [GNU General Public License v3.0](./LICENSE).
