@@ -26,7 +26,7 @@ To set up the development environment, follow these steps:
 
 ## Bug Reports and Feature Requests
 
-If you encounter any issues or have ideas for improvements, please create an issue on the [GitHub issue tracker](https://github.com/your-username/your-repo/issues).
+If you encounter any issues or have ideas for improvements, please create an issue on the [GitHub issue tracker](https://github.com/omegacms/routing/issues).
 
 ## Code Style
 
