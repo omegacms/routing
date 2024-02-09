@@ -25,11 +25,11 @@ use function array_push;
 use function header;
 use function preg_replace;
 use function str_replace;
+use function Omega\Helpers\config;
 use Exception;
 use Throwable;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
-use Omega\Helpers\Alias;
 
 /**
  * Router class.
@@ -100,7 +100,7 @@ class Router extends AbstractRouter
             try {
                 return $matching->dispatch();
             } catch ( Throwable $e ) {
-                if ( $handler = Alias::config( 'handlers.exceptions' ) ) {
+                if ( $handler = config( 'handlers.exceptions' ) ) {
                     $instance = new $handler();
                     if ( $result = $instance->showThrowable( $e ) ) {
                         return $result;

@@ -32,7 +32,7 @@ use function rtrim;
 use function str_contains;
 use function str_ends_with;
 use function trim;
-use Omega\Helpers\App;
+use function Omega\Helpers\app;
 
 /**
  * Route class.
@@ -232,6 +232,6 @@ class Route
      */
     public function dispatch(): mixed
     {
-        return App::application()->call($this->handler);
+        return app()->call($this->handler);
     }
 }
