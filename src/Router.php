@@ -28,8 +28,6 @@ use function str_replace;
 use function Omega\Helpers\config;
 use Exception;
 use Throwable;
-use Whoops\Handler\PrettyPageHandler;
-use Whoops\Run;
 
 /**
  * Router class.
@@ -47,13 +45,6 @@ use Whoops\Run;
  */
 class Router extends AbstractRouter
 {
-        /**
-     * Routes array.
-     *
-     * @var array $routes Holds an array of Routes.
-     */
-    protected array $routes = [];
-
     /**
      * Error handler.
      *

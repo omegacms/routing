@@ -37,6 +37,13 @@ namespace Omega\Routing;
 abstract class AbstractRouter implements RouterInterface
 {
     /**
+     * Routes array.
+     * 
+     * @var array $routes Holds an array of routes.
+     */
+    public array $routes = [];
+    
+    /**
      * @inheritdoc
      *
      * @param  string  $method  Holds the HTTP method for the route.
