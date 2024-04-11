@@ -197,7 +197,7 @@ class Router extends AbstractRouter
      */
     public function redirect( string $path ) : void
     {
-        header( "Location: {$path}", true, 301 );
+        header( "Location: $path", true, 301 );
 
         exit;
     }
@@ -226,9 +226,8 @@ class Router extends AbstractRouter
 
                 $path = $route->path();
                 $path = str_replace( $finds, $replaces, $path );
-                $path = preg_replace( '#{[^}]+}#', '', $path );
 
-                return $path;
+                return preg_replace( '#{[^}]+}#', '', $path );
             }
         }
 

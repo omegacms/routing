@@ -184,7 +184,7 @@ class Route
             return false;
         }
 
-        preg_match_all( "#{$pattern}#", $this->normalisePath( $path ), $matches );
+        preg_match_all( "#$pattern#", $this->normalisePath( $path ), $matches );
 
         $parameterValues = [];
 
@@ -218,7 +218,7 @@ class Route
     private function normalisePath( string $path ) : string
     {
         $path = trim( $path, '/' );
-        $path = "/{$path}/";
+        $path = "/$path/";
 
         return preg_replace( '/[\/]{2,}/', '/', $path );
     }
