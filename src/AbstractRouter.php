@@ -52,7 +52,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param  ?string $name    Holds the route name or null.
      * @return Route Return the added Route instance.
      */
-    public function addRoute(string $method, string $path, mixed $handler, ?string $name = null ): Route
+    public function addRoute( string $method, string $path, mixed $handler, ?string $name = null ) : Route
     {
         $route          = new Route( $method, $path, $handler, $name );
         $this->routes[] = $route;
