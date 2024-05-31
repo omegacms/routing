@@ -54,10 +54,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function addRoute( string $method, string $path, mixed $handler, ?string $name = null ) : Route
     {
-        $route          = new Route( $method, $path, $handler, $name );
-        $this->routes[] = $route;
-
-        return $route;
+        return $this->routes[] = new Route( $method, $path, $handler, $name );
     }
 
     /**

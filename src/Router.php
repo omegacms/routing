@@ -46,18 +46,18 @@ use Throwable;
 class Router extends AbstractRouter
 {
     /**
-     * Error handler.
-     *
-     * @var array $errorHandlers Holds an array of error handler.
-     */
-    protected array $errorHandlers = [];
-
-    /**
      * Current route.
      *
      * @var Route $current Holds an instance of Route.
      */
     protected Route $current;
+
+    /**
+     * Error handler.
+     *
+     * @var array $errorHandlers Holds an array of error handler.
+     */
+    protected array $errorHandlers = [];
 
     /**
      * Adds an error handler for a specific HTTP error code.
@@ -80,7 +80,7 @@ class Router extends AbstractRouter
      */
     public function dispatch() : mixed
     {
-        $paths         = $this->paths();
+        $paths         = $this->getPaths();
         $requestMethod = $_SERVER[ 'REQUEST_METHOD' ] ?? 'GET';
         $requestPath   = $_SERVER[ 'REQUEST_URI'    ] ?? '/';
         $matching      = $this->match( $requestMethod, $requestPath );
@@ -114,12 +114,12 @@ class Router extends AbstractRouter
      *
      * @return array Return an array of paths.
      */
-    private function paths() : array
+    private function getPaths() : array
     {
         $paths = [];
 
         foreach ( $this->routes as $route ) {
-            $paths[] = $route->path();
+            $paths[] = $route->getPath();
         }
 
         return $paths;
@@ -130,7 +130,7 @@ class Router extends AbstractRouter
      *
      * @return ?Route Return an instance of Route or null if no route is matched.
      */
-    public function current() : ?Route
+    public function getCurrent() : ?Route
     {
         return $this->current;
     }
@@ -214,7 +214,7 @@ class Router extends AbstractRouter
     {
         foreach ( $this->routes as $route ) {
             if ( $route->name() === $name ) {
-                $finds = [];
+                $finds    = [];
                 $replaces = [];
 
                 foreach ( $parameters as $key => $value ) {
@@ -224,7 +224,7 @@ class Router extends AbstractRouter
                     array_push( $replaces, $value );
                 }
 
-                $path = $route->path();
+                $path = $route->getPath();
                 $path = str_replace( $finds, $replaces, $path );
 
                 return preg_replace( '#{[^}]+}#', '', $path );

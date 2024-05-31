@@ -50,39 +50,11 @@ use function Omega\Helpers\app;
 class Route
 {
     /**
-     * HTTP method associated with the route.
-     *
-     * @var string $method Holds the route method.
-     */
-    protected string $method;
-
-    /**
-     * Path pattern for the route.
-     *
-     * @var string $path Holds the route path.
-     */
-    protected string $path;
-
-    /**
-     * Handler of the route.
-     *
-     * @var mixed $handler Holds the handler.
-     */
-    protected mixed $handler;
-
-    /**
      * Array of route parameters.
      *
      * @var array $parameters Holds an array of route parameters.
      */
     protected array $parameters = [];
-
-    /**
-     * Name of the route.
-     *
-     * @var ?string $name Holds route name or null if not named.
-     */
-    protected ?string $name = null;
 
     /**
      * Route class constructor.
@@ -93,20 +65,19 @@ class Route
      * @param  ?string $name    Holds the route name or null.
      * @return void
      */
-    public function __construct(string $method, string $path, mixed $handler, ?string $name = null )
-    {
-        $this->method  = $method;
-        $this->path    = $path;
-        $this->handler = $handler;
-        $this->name    = $name;
-    }
+    public function __construct(
+        protected string $method, 
+        protected string $path, 
+        protected mixed $handler,
+        protected ?string $name = null 
+    ) {}
 
     /**
      * Get the HTTP method associated with the route.
      *
      * @return string Returns the route method.
      */
-    public function method() : string
+    public function getMethod() : string
     {
         return $this->method;
     }
@@ -116,7 +87,7 @@ class Route
      *
      * @return string Returns the route path.
      */
-    public function path() : string
+    public function getPath() : string
     {
         return $this->path;
     }
@@ -126,7 +97,7 @@ class Route
      *
      * @return array Returns an array of route parameters.
      */
-    public function parameters() : array
+    public function getParameters() : array
     {
         return $this->parameters;
     }
@@ -137,7 +108,7 @@ class Route
      * @param  ?string $name Holds the route name.
      * @return $this|string|null
      */
-    public function name( string $name = null ) : static|string|null
+    public function getName( string $name = null ) : static|string|null
     {
         if ( $name ) {
             $this->name = $name;
@@ -146,6 +117,17 @@ class Route
 
         return $this->name;
     }
+
+    /**
+ 	 * Alias for getName().
+	 *
+	 * @param  ?string $name Holds the route name.
+	 * @return $this|string|null
+	 */
+	public function name( ?string $name = null ) : static|string|null
+	{
+		return $this->getName( $name );
+	}
 
     /**
      * Checks if the route matches a given HTTP method and path.
@@ -232,6 +214,16 @@ class Route
      */
     public function dispatch(): mixed
     {
-        return app()->call($this->handler);
+        if ( is_array( $this->handler ) ) {
+            [ $class, $method ] = $this->handler;
+
+            if ( is_string( $class ) ) {
+                return app()->call( [ new $class, $method ] );
+            }
+
+            return app()->call( [ $class, $method ] );
+        }
+
+        return app()->call( $this->handler );
     }
 }

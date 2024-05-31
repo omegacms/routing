@@ -42,7 +42,7 @@ interface RouterInterface
      * @param  ?string $name    The route name or null.
      * @return Route Returns the added Route instance.
      */
-    public function addRoute(string $method, string $path, mixed $handler, ?string $name = null): Route;
+    public function addRoute( string $method, string $path, mixed $handler, ?string $name = null ) : Route;
 
     /**
      * Get method.
@@ -54,7 +54,7 @@ interface RouterInterface
      * @param  ?string $name    The route name or null.
      * @return Route Returns the added Route instance.
      */
-    public function get(string $path, mixed $handler, ?string $name = null): Route;
+    public function get( string $path, mixed $handler, ?string $name = null ) : Route;
 
     /**
      * Post method.
@@ -66,7 +66,7 @@ interface RouterInterface
      * @param  ?string $name    The route name or null.
      * @return Route Returns the added Route instance.
      */
-    public function post(string $path, mixed $handler, ?string $name = null): Route;
+    public function post( string $path, mixed $handler, ?string $name = null ) : Route;
 
     /**
      * Put method.
@@ -78,7 +78,7 @@ interface RouterInterface
      * @param  ?string $name    The route name or null.
      * @return Route Returns the added Route instance.
      */
-    public function put(string $path, mixed $handler, ?string $name = null): Route;
+    public function put( string $path, mixed $handler, ?string $name = null ): Route;
 
     /**
      * Delete method.
@@ -90,7 +90,7 @@ interface RouterInterface
      * @param  ?string $name    The route name or null.
      * @return Route Returns the added Route instance.
      */
-    public function delete(string $path, mixed $handler, ?string $name = null): Route;
+    public function delete( string $path, mixed $handler, ?string $name = null ) : Route;
 
     /**
      * Patch method.
@@ -102,7 +102,7 @@ interface RouterInterface
      * @param  ?string $name    The route name or null.
      * @return Route Returns the added Route instance.
      */
-    public function patch(string $path, mixed $handler, ?string $name = null): Route;
+    public function patch( string $path, mixed $handler, ?string $name = null ) : Route;
 
     /**
      * Options method.
@@ -114,7 +114,7 @@ interface RouterInterface
      * @param  ?string $name    The route name or null.
      * @return Route Returns the added Route instance.
      */
-    public function options(string $path, mixed $handler, ?string $name = null): Route;
+    public function options( string $path, mixed $handler, ?string $name = null ) : Route;
 
     /**
      * Any method.
@@ -126,7 +126,7 @@ interface RouterInterface
      * @param  ?string $name    The route name or null.
      * @return Route Returns the added Route instance.
      */
-    public function any(string $path, mixed $handler, ?string $name = null): Route;
+    public function any( string $path, mixed $handler, ?string $name = null ) : Route;
 
     /**
      * Dispatches the router, matching the current request and executing the 
@@ -134,5 +134,5 @@ interface RouterInterface
      *
      * @return mixed  The result of the route handler.
      */
-    public function dispatch(): mixed;
+    public function dispatch() : mixed;
 }
